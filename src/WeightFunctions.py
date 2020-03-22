@@ -1,6 +1,6 @@
 #Functions to calculate weight of a term used in a document
 import os.path
-from WeightScoringClasses import TermFrequencyWeight,DocumentLength
+from WeightClasses import TermFrequencyWeight,DocumentLength
 
 
 '''
@@ -32,18 +32,23 @@ def NormalizeDocLength(tf_weights):
     doc_amount =  tf_w[len(tf_w)-1].docId
 
     #Check if it is sorted correctly
-    for tf in tf_w:
-        print(tf)
-    print(len(tf_w),"\n++++++++++++++++++++++++++++++++++++++++++++\n")
+    #print("tf_Weights sorted on docIDs")
+    #for tf in tf_w:
+    #    print(tf)
+    #print(len(tf_w),"\n++++++++++++++++++++++++++++++++++++++++++++\n")
 
     for i in range(len(tf_w)):
         docId = tf_w[i].docId
         tf_weight = tf_w[i].tf_weight
         document = DocumentLength(docId,tf_weight)
-        if any(doc.docId == i for doc in normalized_docs ):    #Increment update normalized length
-            normalized_docs[i].UpdateLength(tf_weight)
-        else:                       #Insert document id with normalized value
+        
+        #Update normalized length if docId exist
+        ##Insert document id with normalized value if docId does not exist
+        if any( doc.docId == docId for doc in normalized_docs  ): 
+            normalized_docs[docId].UpdateLength(tf_weight)
+        else:                       
             normalized_docs.append(document)
+
         
 
     return normalized_docs
