@@ -1,21 +1,31 @@
-# 1) Read "dictionary.txt and postings.txt" to compute term frequency weight
 import os.path
 from ComputeWeights import GetTfWeights, NormalizeDocLength
-
+from DictionaryFunctions import BuildDictionary
 
 def main():
+
+    #1)Read dictionary.txt and use hash table to implement a dictionary
+    dictionary = BuildDictionary()
+
+    for e in dictionary:
+        print(e,"--> ", dictionary[e])
+    print("\n-----------------------------------\n")
+
+    #2) Read postings.txt" to compute term frequency weight
     tf_weights = GetTfWeights()
-    for i in tf_weights:
-        print(i)
-    print(len(tf_weights))
 
-    normalized_docs = NormalizeDocLength(tf_weights)
+    for e in tf_weights:
+        print(e)
 
-    # for n in normalized_docs:
+    
+    #3) Sum term weights used in a document and normalize the length
+    #normalized_docs = NormalizeDocLength(tf_weights)
+
+    #for n in normalized_docs:
     #    print(n)
 
-    return
 
+    return
 
 if __name__ == "__main__":
     main()
