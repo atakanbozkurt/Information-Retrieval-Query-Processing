@@ -10,10 +10,16 @@ class TermFrequencyWeight:
     def __str__(self):
         return "DocId: " + str(self.docId) + " ,  Frequency: " + str(self.frequency) + " ,  Tf Weight: " + str(self.tf_weight)
 
+
 class DocumentLength:
-    def __init__(self,docId,norm_length):
+    def __init__(self,docId,tf_weight):
         self.docId = docId
-        self.length = norm_length
-    
+        self.length = 1/(math.sqrt(tf_weight))
+        self.tf_sum = (tf_weight)*(tf_weight)
+
     def __str__(self):
         return "DocId: " + str(self.docId) + " , Length: " + str(self.length)
+    
+    def UpdateLength(self,tf_weight):
+        self.tf_sum += (tf_weight)*(tf_weight)
+        self.length = 1/(math.sqrt(tf_sum))

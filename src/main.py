@@ -16,13 +16,14 @@ def main():
 
     for e in tf_weights:
         print(e)
-
+    print("\n-----------------------------------\n")
     
     #3) Sum term weights used in a document and normalize the length
-    #normalized_docs = NormalizeDocLength(tf_weights)
-
-    #for n in normalized_docs:
-    #    print(n)
+    normalized_docs = NormalizeDocLength(tf_weights)
+    
+    print("Normalized doc Length: ~~~~~~~~")
+    for n in normalized_docs:
+        print(n)
 
 
     return

@@ -1,6 +1,10 @@
 import os.path
 from DictionaryClasses import Term
 
+
+'''
+Build dictionary using hash table. Key is term. Value is object of term,docId,offset(pointer) to postings
+'''
 def BuildDictionary():
     dictionary_path = os.path.abspath("../input_files/dictionary.txt")
     dictionary_file = open(dictionary_path,encoding='utf8')
