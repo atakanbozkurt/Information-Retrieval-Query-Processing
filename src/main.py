@@ -3,6 +3,7 @@ from WeightFunctions import GetTfWeights, NormalizeDocLength
 from DictionaryFunctions import BuildDictionary
 from QueryProcessing import TokenizeQuery
 from PostingsFunctions import GetAllPostings
+from DAATFunctions import CosSim
 
 
 def main():
@@ -45,7 +46,11 @@ def main():
         for documents in postings:
             print(documents)
 
-
+    #6)Implement the Document-At-A-Time algorithm for processing vector space queries based on the Cosine similarity function.
+    print("-------------   CosSim    --------------------")
+    cos_sim = CosSim(terms_postings, tokens)
+    for doc in cos_sim:
+        print(doc)
 
     return
 
