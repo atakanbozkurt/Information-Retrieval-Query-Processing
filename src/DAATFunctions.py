@@ -16,10 +16,10 @@ def CosSim(terms_postings):
         n_sqr_di = 0
         for j in terms_postings:
             if j.docid == i:
-                qi = 0;
-                di = 0;
-                qidi = qidi + qi*di
-                n_sqr_di = n_sqr_di + math.pow(n_sqr_di, 2)
+                qi = 0 # tf*idf ?
+                di = 0 # the same ?
+                qidi = qidi + qi*di # the sum of qi * di
+                n_sqr_di = n_sqr_di + math.pow(n_sqr_di, 2) # the sum of di**2
         sim = qidi/math.sqrt(n_sqr_di)
         result = Result(i, sim)
         cos_sim.append(result)
