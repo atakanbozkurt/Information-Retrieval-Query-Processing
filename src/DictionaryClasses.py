@@ -1,4 +1,4 @@
-class Term:
+class DictEntry:
     def __init__(self,term,doc_freq,offset):
         self.term = term
         self.doc_freq = doc_freq

@@ -1,5 +1,5 @@
 import os.path
-from DictionaryClasses import Term
+from DictionaryClasses import DictEntry
 
 
 '''
@@ -14,7 +14,7 @@ def BuildDictionary():
         term = args[0]
         doc_freq = args[1]
         offset = args[2]
-        dictionary[term] = Term(term,doc_freq,offset)
+        dictionary[term] = DictEntry(term,doc_freq,offset)
    
     dictionary_file.close()
 

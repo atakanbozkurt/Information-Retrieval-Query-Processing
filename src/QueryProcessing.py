@@ -1,6 +1,9 @@
 from nltk.stem.porter import PorterStemmer
+import os.path
 
-
+'''
+Auxiliary function to tokenize queries.
+'''
 def is_number(s):
     try:
         float(s)
@@ -17,7 +20,9 @@ def is_number(s):
 
     return False
 
-
+'''
+Tokenize query and return list of tokens(query words).
+'''
 def TokenizeQuery(query):
     porter_stemmer = PorterStemmer()
     # 1)Input : "A new hi-gh for the sto-ck market?"

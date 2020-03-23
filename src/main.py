@@ -2,10 +2,11 @@ import os.path
 from WeightFunctions import GetTfWeights, NormalizeDocLength
 from DictionaryFunctions import BuildDictionary
 from QueryProcessing import TokenizeQuery
+from PostingsFunctions import GetAllPostings
 
 
 def main():
-    query = "TI shares decline in late trading; H-P rises 914 479 73 60"
+    query = "10year 2008style asia"
 
     #1)Read dictionary.txt and use hash table to implement a dictionary
     dictionary = BuildDictionary()
@@ -15,10 +16,15 @@ def main():
     normalized_docs = NormalizeDocLength(tf_weights)
     #4) Parse input queries
     tokens = TokenizeQuery(query)
-    #5) Find the correct postings list for any query term
-    #~~~~
 
-    ''' 
+    print("-------------   Tokenization   --------------------")
+    print("Query: ", query , "\nTokens: " , tokens)
+
+    #5) Find the correct postings list for any query term
+    terms_postings = GetAllPostings(dictionary,tokens,tf_weights)
+
+
+    '''
     print("-------------   Dictionary    --------------------")
     for e in dictionary:
         print(e,"--> ", dictionary[e])
@@ -30,9 +36,14 @@ def main():
     print("\n\n-------------   Normalized doc length   --------------------")
     for n in normalized_docs:
         print(n)
-    '''
+
     print("-------------   Tokenization   --------------------")
     print("Query: ", query , "\nTokens: " , tokens)
+    '''
+    print("-------------   Term - Postings List    --------------------")
+    for postings in terms_postings :
+        for documents in postings:
+            print(documents)
 
 
 
