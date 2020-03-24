@@ -69,6 +69,7 @@ def CosSim(terms_postings,tokens,normalized_docs,dictionary):
         cos_sim.append(result)
 
     # need sort result by sim
+    cos_sim.sort(reverse=True)
     
     return cos_sim
 
