@@ -12,3 +12,4 @@ class QueryInfo:
         self.token  = token
         self.tfw    = 1 + math.log10(int(tf))
         self.idfw   = idfw
+        self.qi     = self.tfw * idfw

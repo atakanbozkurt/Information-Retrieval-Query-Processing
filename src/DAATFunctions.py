@@ -34,10 +34,11 @@ def CosSim(terms_postings,tokens):
     for i in doc_list:
         qidi = 0
         n_sqr_di = 0
-        qi = 0  # tf*idf ?
         di = 0  # the same ?
         for j in terms_postings:
             if j.docid == i:
+                qi = searchqi(j.term, tokens_info)
+                di = searchtfw(j.term, terms_postings) * 1 #how to get idfw
                 qidi = qidi + qi*di # the sum of qi * di
                 n_sqr_di = n_sqr_di + math.pow(n_sqr_di, 2) # the sum of di**2
         sim = qidi/math.sqrt(n_sqr_di)
@@ -47,3 +48,13 @@ def CosSim(terms_postings,tokens):
     # need sort result by sim
 
     return cos_sim
+
+def searchqi(term, tokens_info):
+    for i in tokens_info:
+        if term == i.token:
+            return i.qi
+
+def searchtfw(term, terms_postings):
+    for i in terms_postings:
+        if term == i.term:
+            return i.tf_weight
