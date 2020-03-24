@@ -38,7 +38,6 @@ def CosSim(terms_postings,tokens):
         di = 0  # the same ?
         for j in terms_postings:
             if j.docid == i:
-
                 qidi = qidi + qi*di # the sum of qi * di
                 n_sqr_di = n_sqr_di + math.pow(n_sqr_di, 2) # the sum of di**2
         sim = qidi/math.sqrt(n_sqr_di)
