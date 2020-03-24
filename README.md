@@ -1,11 +1,14 @@
 # Information-Retrieval-Query-Processing
 How to run?
+
 -> Inside src directory
 -> Command line usage: python main.py "query terms"
+
 Example usage:      python main.py europe
 Example usage:      python main.py stock rally
 Example usage:      python main.py debt crisis
 Example usage:      python main.py stock future higher
+
 
 Dictionary and postings list was provided in "input_files" in input_folders directory
 Output files can be found in "output_files" directory
