@@ -1,6 +1,7 @@
 from DAATClasses import Result, QueryInfo
 import math
 
+<<<<<<< HEAD
 def CosSim(terms_postings,tokens,normalized_docs,dictionary):
     '''
     #If you need to work with documents
@@ -14,6 +15,9 @@ def CosSim(terms_postings,tokens,normalized_docs,dictionary):
 
 
     
+=======
+def CosSim(terms_postings,tokens):
+>>>>>>> origin/master
     cos_sim = []
     doc_list = []
     tokens_info=[]
