@@ -32,9 +32,13 @@ def CosSim(terms_postings,tokens,normalized_docs,dictionary):
 
         for t_p in terms_postings:
             for documents in t_p:
+                # print(documents.term+" token:"+token)
                 if documents.term == token:
                     df +=1
-        idfw = math.log10(N_Q/int(df))
+                    # print("df="+str(df))
+        if df == 0:
+            idfw = 0
+        else: idfw = math.log10(N_Q/int(df))
         # print(N_Q/int(df))
         info = QueryInfo(token, tftd, idfw)
         tokens_info.append(info)
