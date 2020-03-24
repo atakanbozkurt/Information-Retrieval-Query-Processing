@@ -48,7 +48,7 @@ def main():
 
     #6)Implement the Document-At-A-Time algorithm for processing vector space queries based on the Cosine similarity function.
     print("-------------   CosSim    --------------------")
-    # cos_sim = CosSim(terms_postings)
+    # cos_sim = CosSim(terms_postings,tokens)
     # for doc in cos_sim:
     #     print(doc)
 
