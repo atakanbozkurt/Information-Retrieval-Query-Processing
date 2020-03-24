@@ -5,7 +5,7 @@ class Result:
         self.cos_sim= cos_sim
 
     def __str__(self):
-        return "DocId: " + str(self.docId) + " , cos_sim: " + str(self.tf_weight)
+        return "DocId: " + str(self.docId) + " , cos_sim: " + str(self.cos_sim)
 
 class QueryInfo:
     def __init__(self, token, tf, idfw):
@@ -13,3 +13,5 @@ class QueryInfo:
         self.tfw    = 1 + math.log10(int(tf))
         self.idfw   = idfw
         self.qi     = self.tfw * idfw
+    def __str__(self):
+        return "token: " + str(self.token) + " , tfw: " + str(self.tfw) + " , idfw: " + str(self.idfw) + " , qi: " + str(self.qi)

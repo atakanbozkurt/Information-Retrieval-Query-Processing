@@ -21,7 +21,7 @@ def main():
     terms_postings = GetAllPostings(dictionary,tokens,tf_weights)
 
 
-    
+    '''
     print("-------------   Dictionary    --------------------")
     for e in dictionary:
         print(e,"--> ", dictionary[e])
@@ -38,7 +38,7 @@ def main():
 
     print("-------------   Tokenization   --------------------")
     print("Query: ", query , "\nTokens: " , tokens)
-    
+    '''
     print("-------------   Term - Postings List    --------------------")
     for postings in terms_postings :
         for documents in postings:
@@ -46,16 +46,10 @@ def main():
 
     #6)Implement the Document-At-A-Time algorithm for processing vector space queries based on the Cosine similarity function.
     print("-------------   CosSim    --------------------")
-<<<<<<< HEAD
     cos_sim = CosSim(terms_postings,tokens,normalized_docs,dictionary)
-    #for doc in cos_sim:
-    #    print(doc)
+    for doc in cos_sim:
+       print(doc)
 
-=======
-    # cos_sim = CosSim(terms_postings,tokens)
-    # for doc in cos_sim:
-    #     print(doc)
->>>>>>> origin/master
 
     return
 
